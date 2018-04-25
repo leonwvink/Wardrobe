@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class WardrobeController {
     private static ArrayList<String> action = new ArrayList<>();
     private Wardrobe wardrobe;
+    private int force;
 
     @GetMapping("/")
     public ArrayList<String> action(){
@@ -69,7 +70,8 @@ public class WardrobeController {
     }
 
     @GetMapping("/kick")
-    public void kick(int force){
+    public void kick(){
+        force = (int) (10*Math.random());
         wardrobe.setHealth(wardrobe.getHealth() - force);
         System.out.println("You kicked the wardrobe with " + force + " force! The wardrobe has still a health of " + (wardrobe.getHealth()-force) );
         action.add("Kicking the wardrobe");

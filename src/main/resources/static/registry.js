@@ -67,7 +67,6 @@ function getOut(){
 
 function kick(){
 
-    var force = $("#force").val();
     $.get("/api/wardrobe/kick", function() {
     getWardrobe();
     });
